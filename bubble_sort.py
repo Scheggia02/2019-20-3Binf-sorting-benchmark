@@ -14,3 +14,4 @@ def bubble_sort(list):
 
     stop_time = time.time()
     return stop_time-start_time
+    
