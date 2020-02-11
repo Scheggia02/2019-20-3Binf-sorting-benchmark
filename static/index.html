@@ -5,19 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Book Sorting</title>
 </head>
+<style>
+    li:hover{
+        background-color: aqua;
+    }
+</style>
 <body>
-   <strong>Waiting for sorted names...</strong> 
+    <ul></ul>
 </body>
 
 <script src = "jquery-3.4.1.min.js"></script>
 <script>
-    $.getJSON("data").done(createItems);
+    $.getJSON("/data").done(createItems);
     function createItems(jsonData)
     {
+        console.log(jsonData);
         for(book of jsonData)
         {
-            $("ul").append(`<li>${book.author}</li>`);
+            console.log(book.author);
+            $("ul").append(`<li onclick="showCode()">${book.author}</li>`);
         }
+    }
+    function showCode()
+    {
+        console.log("Inside Code Showed");
+        alert("The key to open the correct locker is AABAB");
     }
 </script>
 </html>
